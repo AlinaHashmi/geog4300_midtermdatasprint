@@ -40,7 +40,13 @@ numbat_sp <-numbat_clean %>%
 tmap_mode("view")
 
 tm_shape(numbat_sp) +
-  tm_polygons()
+  tm_dots()
+
+numbat_df <- numbat_sp %>%
+  st_set_geometry(NULL)
+
+numbat_month_observations <- numbat_df %>%
+  count(month)
 ```
 
 **Discussion:**
