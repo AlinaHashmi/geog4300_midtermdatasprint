@@ -29,10 +29,18 @@ This section should include at least two visualizations (graphs/maps) relevant t
 Months with the most numbat sightings; mean temperature they are sighted in; precipitation; area sighted in
 
 ```{r}
-numbat <- read.csv("data/numbats.csv") %>%
+numbat_clean <- read.csv("data/numbats.csv") %>% 
+  filter(!is.na(decimalLongitude) & !is.na(decimalLatitude))
+  
+numbat_sp <-numbat_clean %>%
   st_as_sf(coords = c("decimalLongitude", "decimalLatitude"), 
-           crs = 4326, 
+           crs = 7844, 
            remove = FALSE)
+
+tmap_mode("view")
+
+tm_shape(numbat_sp) +
+  tm_polygons()
 ```
 
 **Discussion:**
