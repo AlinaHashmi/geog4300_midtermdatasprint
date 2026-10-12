@@ -1,0 +1,16 @@
+---
+title: "MidtermDataSprint"
+format: html
+---
+
+```{r}
+#| label: setup
+#install.packages(c("tidygeocoder"))
+
+library(tidyverse)
+library(tmap)
+library(tidygeocoder)
+library(sf)
+library(dplyr)
+library(stringr)
+```
