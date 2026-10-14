@@ -18,15 +18,15 @@ library(viridis)
 
 **Introduction:**
 A brief description of the dataset and its main variables.
+The dataset numbats.csv records numbat sighting in Australia. It includes the time it was sighted (month, day, year, etc.) as well as the longitude and latitude that the numbat was sighted at.
 
 The research question you are trying to answer related to this dataset
+Where are numbats sighted most in Australia and in what season are they sighted in the most? 
 
 **Analysis:**
 A section in which you answer that question using R coding skills you've learned. This will include code chunks as well as brief description of what each of those code chunks is doing.
 
 This section should include at least two visualizations (graphs/maps) relevant to your research question.
-
-Months with the most numbat sightings; mean temperature they are sighted in; precipitation; area sighted in
 
 ```{r}
 numbat_clean <- read.csv("data/numbats.csv") %>% 
