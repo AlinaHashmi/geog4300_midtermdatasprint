@@ -56,17 +56,25 @@ numbat_month_observations_season <- numbat_month_observations %>%
     month %in% c("Jun", "Jul", "Aug") ~ "Winter"
   ))
 
+ggplot(numbat_month_observations_season, aes(x = season, y = n, fill = month)) +
+  geom_col()
 
+numbat_season_group <- numbat_month_observations_season %>%
+  group_by(season) %>%
+  summarize(count = sum(n))
 
-numbat_geo <- numbat_df %>%
-  reverse_geocode(
-    lat = decimalLatitude,
-    long = decimalLongitude,
-    method = 'osm',
-    full_results = TRUE
-  )
+#taking too long to load :(
+#numbat_geo <- numbat_df %>%
+  #reverse_geocode(
+    #lat = decimalLatitude,
+    #long = decimalLongitude,
+    #address = addtess_found,
+    #method = "osm"
+  #)
 ```
 
 **Discussion:**
+The season that the most number of sightings for numbats is in Spring with a total number of 283, which can be seen in the dataframe numbate_season_group. The number of sightings in Summer, Fall, and Winter are 208, 29, and 17, respectively. Additionally, numbats are tend to be found in Perth, Australia according to the map numbat_sp. 
 
 **Tie to Class:**
+In this assignment, I filtered the data by month and found the count of observations for each month. Additionally, I loaded spatial data into R and displayed it using tmap. I also displayed the seasons that numbat sightings were recorded in using ggplot via a bar graph.
