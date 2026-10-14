@@ -47,6 +47,24 @@ numbat_df <- numbat_sp %>%
 
 numbat_month_observations <- numbat_df %>%
   count(month)
+
+numbat_month_observations_season <- numbat_month_observations %>%
+  mutate(season = case_when(
+    month %in% c("Sep", "Oct", "Nov") ~ "Spring",
+    month %in% c("Dec", "Jan", "Feb") ~ "Summer",
+    month %in% c("Mar", "Apr", "May") ~ "Fall",
+    month %in% c("Jun", "Jul", "Aug") ~ "Winter"
+  ))
+
+
+
+numbat_geo <- numbat_df %>%
+  reverse_geocode(
+    lat = decimalLatitude,
+    long = decimalLongitude,
+    method = 'osm',
+    full_results = TRUE
+  )
 ```
 
 **Discussion:**
